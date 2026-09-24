@@ -7,7 +7,6 @@ import { publicPath } from "@/lib/paths";
 export default function Hero() {
   return <section className="home-hero" aria-labelledby="hero-title">
     <div className="hero-decor hero-decor-peach scroll-decor" data-scroll-move="20" data-scroll-scale="0.025" aria-hidden="true" />
-    <div className="hero-decor hero-decor-blue scroll-decor" data-scroll-move="-26" data-scroll-scale="0.035" aria-hidden="true" />
     <div className="hero-curve scroll-decor" data-scroll-move="15" data-scroll-scale="0.018" aria-hidden="true" />
     <div className="hero-dots scroll-decor" data-scroll-move="-16" aria-hidden="true" />
     <div className="container home-hero-inner">

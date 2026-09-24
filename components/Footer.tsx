@@ -7,11 +7,10 @@ import { publicPath } from "@/lib/paths";
 export function ContactSection() {
   return <section id="contacts" className="contact-section">
     <div className="contact-decor contact-decor-left scroll-decor" data-scroll-move="18" data-scroll-scale="0.035" aria-hidden="true" />
-    <div className="contact-decor contact-decor-right scroll-decor" data-scroll-move="-20" data-scroll-scale="0.045" aria-hidden="true" />
     <div className="contact-decor contact-decor-peach scroll-decor" data-scroll-move="14" data-scroll-scale="0.04" aria-hidden="true" />
     <div className="contact-decor contact-decor-lower scroll-decor" data-scroll-move="-16" data-scroll-scale="0.03" aria-hidden="true" />
+    <svg className="contact-right-orbit scroll-decor" data-scroll-move="10" data-scroll-scale="0.012" viewBox="0 0 520 500" preserveAspectRatio="none" aria-hidden="true"><path d="M 516 70 C 350 40 226 174 205 476" /></svg>
     <div className="contact-dots contact-dots-left scroll-decor" data-scroll-move="15" aria-hidden="true" />
-    <div className="contact-dots contact-dots-right scroll-decor" data-scroll-move="-15" aria-hidden="true" />
     <div className="contact-orange-orbit" aria-hidden="true">
       <svg viewBox="0 0 320 520" preserveAspectRatio="none" focusable="false"><path d="M 24 -16 C 172 112 224 282 198 548" /></svg>
       <span className="contact-orbit-dot" data-scroll-path />
