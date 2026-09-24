@@ -5,7 +5,7 @@ import Reveal from "./Reveal";
 
 export default function BlogPreview() {
   return <section id="blog" className="section blog-preview-section">
-    <div className="blog-background-dots scroll-decor" data-scroll-move="18" aria-hidden="true" />
+    <div className="blog-background-dots scroll-decor" data-scroll-move="18" data-scroll-scale="0.03" aria-hidden="true" />
     <div className="container blog-preview-layout">
       <Reveal className="blog-heading">
         <div className="eyebrow section-kicker"><span>04</span> — БЛОГ</div>

@@ -10,8 +10,8 @@ const services = [
 
 export default function Services() {
   return <section id="services" className="section services-section">
-    <div className="services-background-shape scroll-decor" data-scroll-move="-24" aria-hidden="true" />
-    <div className="services-background-dots scroll-decor" data-scroll-move="20" aria-hidden="true" />
+    <div className="services-background-shape scroll-decor" data-scroll-move="-24" data-scroll-scale="0.025" aria-hidden="true" />
+    <div className="services-background-dots scroll-decor" data-scroll-move="20" data-scroll-scale="0.035" aria-hidden="true" />
     <div className="container">
       <Reveal className="services-heading">
         <div className="eyebrow section-kicker"><span>02</span> — ПРАКТИКИ</div>

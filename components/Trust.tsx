@@ -21,7 +21,7 @@ export default function Trust() {
       <p>Мы говорим на языке бизнеса, думаем как предприниматели и ищем практические решения, а не усложняем процесс.</p>
       <div className="principles">{principles.map((item) => { const Icon = item.icon; return <div className="principle" key={item.title}><Icon size={29} strokeWidth={1.5} /><span>{item.title}</span></div>; })}</div>
     </Reveal>
-    <div className="approach-decor scroll-decor" data-scroll-move="-20" aria-hidden="true" />
+    <div className="approach-decor scroll-decor" data-scroll-move="-20" data-scroll-scale="0.03" aria-hidden="true" />
   </section>;
 }
 

@@ -10,6 +10,7 @@ export default function SitePatterns() {
     if (!host) return;
     const patterns = [...host.querySelectorAll<HTMLElement>("[data-flow-pattern]")];
     const moving = [...document.querySelectorAll<HTMLElement>("[data-scroll-move]")];
+    const pathDots = [...document.querySelectorAll<HTMLElement>("[data-scroll-path]")];
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (reduceMotion.matches || !("IntersectionObserver" in window)) {
       patterns.forEach((pattern) => pattern.classList.add("is-in-view"));
@@ -34,13 +35,24 @@ export default function SitePatterns() {
         if (rect.bottom < -100 || rect.top > window.innerHeight + 100) continue;
         const progress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
         pattern.style.setProperty("--flow-shift", Math.round((progress - 0.5) * 90) + "px");
+        pattern.style.setProperty("--flow-scale", (0.985 + Math.sin(progress * Math.PI) * 0.03).toFixed(4));
       }
       for (const element of moving) {
         const rect = element.getBoundingClientRect();
         if (rect.bottom < -100 || rect.top > window.innerHeight + 100) continue;
         const distance = Number(element.dataset.scrollMove) || 0;
+        const scaleRange = Number(element.dataset.scrollScale) || 0;
         const progress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
         element.style.setProperty("--decor-shift", Math.round((progress - 0.5) * distance * 2) + "px");
+        element.style.setProperty("--decor-scale", (1 + Math.sin(progress * Math.PI) * scaleRange).toFixed(4));
+      }
+      for (const dot of pathDots) {
+        const orbit = dot.parentElement;
+        if (!orbit) continue;
+        const rect = orbit.getBoundingClientRect();
+        if (rect.bottom < -100 || rect.top > window.innerHeight + 100) continue;
+        const progress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
+        dot.style.setProperty("--path-position", `${28 + progress * 38}%`);
       }
     }
     function schedule() {

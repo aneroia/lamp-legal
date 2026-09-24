@@ -6,7 +6,7 @@ import { publicPath } from "@/lib/paths";
 
 export default function About() {
   return <section id="about" className="section about-section container">
-    <div className="about-decor scroll-decor" data-scroll-move="24" aria-hidden="true" />
+    <div className="about-decor scroll-decor" data-scroll-move="24" data-scroll-scale="0.035" aria-hidden="true" />
     <Reveal className="about-copy">
       <div className="eyebrow section-kicker"><span>01</span> — О КОМПАНИИ</div>
       <h2>Тут <span className="accent-word">договариваются</span></h2>
