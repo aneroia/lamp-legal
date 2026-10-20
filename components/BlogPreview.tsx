@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Send } from "lucide-react";
 import { posts } from "@/lib/posts";
 import Reveal from "./Reveal";
 
@@ -12,6 +12,7 @@ export default function BlogPreview() {
         <h2>Актуальное о праве<br />и <span className="accent-word">бизнесе</span></h2>
         <p>Объясняем важное простыми словами и делимся наблюдениями из практики.</p>
         <Link href="/blog" className="inline-link blog-all-link">Все статьи <ArrowRight size={17} /></Link>
+        <a href="https://t.me/lamp_room_legal" target="_blank" rel="noopener noreferrer" className="blog-telegram-link"><Send size={16} strokeWidth={1.7} aria-hidden="true" />Наш Telegram-канал</a>
       </Reveal>
       <div className="blog-grid">
         {posts.slice(0, 3).map((post, i) => <Reveal className="blog-card" key={post.id} delay={i * 80}>

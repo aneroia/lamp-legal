@@ -18,8 +18,8 @@ export default function Trust() {
       <div className="approach-quote">Юридическая работа,<br />встроенная в бизнес.<span /></div>
     </Reveal>
     <Reveal className="approach-copy" delay={120}>
-      <div className="eyebrow section-kicker"><span>03</span> — КАК МЫ РАБОТАЕМ</div>
-      <h2>Понимаем контекст.<br /><span>Доводим до результата.</span></h2>
+      <div className="eyebrow section-kicker"><span>03</span> — ПОЧЕМУ ЛЭМП ЛИГАЛ</div>
+      <h2>Как мы <span>работаем</span></h2>
       <p>Юридическая работа, которая встроена в бизнес, а не стоит рядом с ним.</p>
       <div className="method-list">{principles.map((item) => { const Icon = item.icon; return <div className="method-item" key={item.title}><Icon size={31} strokeWidth={1.45} /><div><h3>{item.title}</h3><p>{item.text}</p></div></div>; })}</div>
       <p className="approach-closing">Юридические вопросы не должны тормозить бизнес. Наша задача — чтобы так и было.</p>

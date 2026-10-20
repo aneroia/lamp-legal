@@ -1121,3 +1121,138 @@ h2 { font-weight: 750; letter-spacing: -.052em; }
     font-size: 11px;
   }
 }
+
+/* Design content updates */
+.hero-principle-note {
+  display: flex;
+  width: 156px;
+  min-height: 156px;
+  aspect-ratio: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 15px;
+  letter-spacing: 0;
+}
+
+.hero-principle-note h2 {
+  color: #2f4654;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.22;
+  letter-spacing: -.02em;
+}
+
+.hero-principle-note p {
+  margin-top: 9px;
+  color: #5a6d78;
+  font-size: 12px;
+  font-weight: 450;
+  line-height: 1.5;
+}
+
+.hero-principle-note span {
+  margin-top: auto;
+}
+
+.hero-principle-note-1 {
+  top: 42px;
+  right: 38px;
+}
+
+.hero-principle-note-2 {
+  top: 218px;
+  left: -18px;
+  background: rgba(235,247,252,.97);
+}
+
+.hero-principle-note-3 {
+  right: -12px;
+  bottom: 34px;
+  background: rgba(255,242,231,.97);
+}
+
+.blog-telegram-link {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 9px;
+  margin-top: 17px;
+  color: #3d7896;
+  font-size: 12px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.blog-telegram-link:hover {
+  color: var(--orange);
+}
+
+@media (max-width: 760px) {
+  .hero-principle-note {
+    width: 138px;
+    min-height: 138px;
+    padding: 13px;
+  }
+
+  .hero-principle-note h2 {
+    font-size: 13px;
+  }
+
+  .hero-principle-note p {
+    font-size: 11px;
+  }
+
+  .hero-principle-note-1 {
+    top: 28px;
+    right: 30px;
+  }
+
+  .hero-principle-note-2 {
+    top: 190px;
+    left: -8px;
+  }
+
+  .hero-principle-note-3 {
+    right: -4px;
+    bottom: 22px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-principle-note {
+    width: 116px;
+    min-height: 116px;
+    padding: 9px;
+    border-radius: 9px;
+  }
+
+  .hero-principle-note h2 {
+    font-size: 10.5px;
+  }
+
+  .hero-principle-note p {
+    margin-top: 6px;
+    font-size: 9.5px;
+    line-height: 1.38;
+  }
+
+  .hero-principle-note span {
+    width: 21px;
+    margin-top: auto;
+  }
+
+  .hero-principle-note-1 {
+    top: 16px;
+    right: 22px;
+  }
+
+  .hero-principle-note-2 {
+    top: 130px;
+    left: 0;
+  }
+
+  .hero-principle-note-3 {
+    right: 0;
+    bottom: 18px;
+  }
+}
