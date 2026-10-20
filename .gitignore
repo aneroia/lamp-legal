@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# source copy supplied for the website
+/Тексты для сайта Лэмп Лигал.docx

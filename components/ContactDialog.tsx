@@ -23,7 +23,7 @@ export function ContactProvider({ children }: { children: React.ReactNode }) {
       if (event.key === "Escape") setOpen(false);
       if (event.key !== "Tab" || !dialog.current) return;
       const focusable = [...dialog.current.querySelectorAll<HTMLElement>(
-        'button:not([disabled]), input:not([disabled]), a[href]'
+        'button:not([disabled]), input:not([disabled]), textarea:not([disabled]), a[href]'
       )];
       if (!focusable.length) return;
       const first = focusable[0];
@@ -53,7 +53,7 @@ export function ContactProvider({ children }: { children: React.ReactNode }) {
   function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     event.currentTarget.reset();
-    setMessage("Поля заполнены. Форма пока работает в демонстрационном режиме — данные никуда не отправлены.");
+    setMessage("Спасибо! Мы получили заявку и свяжемся с вами в ближайшее время. Форма пока работает в демонстрационном режиме, поэтому данные никуда не отправлены.");
   }
 
   return (
@@ -64,8 +64,8 @@ export function ContactProvider({ children }: { children: React.ReactNode }) {
           <div className="contact-dialog" ref={dialog} role="dialog" aria-modal="true" aria-labelledby="contact-title">
             <button type="button" className="contact-close" onClick={close} aria-label="Закрыть окно"><X size={22} /></button>
             <div className="eyebrow">СВЯЗАТЬСЯ С НАМИ</div>
-            <h2 id="contact-title">Обсудим<br /><span>вашу задачу.</span></h2>
-            <p className="contact-description">Оставьте имя и номер телефона. Сейчас это демонстрация формы: данные не отправляются.</p>
+            <h2 id="contact-title">Расскажите<br /><span>о задаче.</span></h2>
+            <p className="contact-description">Предложим понятный формат работы, сроки и стоимость. Первое обсуждение ни к чему вас не обязывает.</p>
             {message ? (
               <div className="contact-message" role="status">
                 <p>{message}</p>
@@ -73,17 +73,22 @@ export function ContactProvider({ children }: { children: React.ReactNode }) {
               </div>
             ) : (
               <form onSubmit={submit} className="contact-form">
-                <label htmlFor="contact-name">Ваше имя</label>
-                <input id="contact-name" ref={firstInput} name="name" type="text" autoComplete="name" placeholder="Как к вам обращаться" minLength={2} maxLength={80} required />
-                <label htmlFor="contact-phone">Номер телефона</label>
-                <input id="contact-phone" name="phone" type="tel" autoComplete="tel" inputMode="tel" placeholder="+7 (999) 000-00-00" minLength={10} maxLength={25} required />
+                <label htmlFor="contact-name">Как к вам обращаться</label>
+                <input id="contact-name" ref={firstInput} name="name" type="text" autoComplete="name" placeholder="Ваше имя" minLength={2} maxLength={80} required />
+                <label htmlFor="contact-channel">Telegram, телефон или email</label>
+                <input id="contact-channel" name="contact" type="text" autoComplete="email" placeholder="Ваши контакты" minLength={3} maxLength={100} required />
+                <label htmlFor="contact-company">Название компании или проекта <span className="form-optional">необязательно</span></label>
+                <input id="contact-company" name="company" type="text" autoComplete="organization" maxLength={120} />
+                <label htmlFor="contact-task">Что нужно сделать</label>
+                <textarea id="contact-task" name="task" placeholder="Коротко: что произошло и что хотите получить" minLength={10} maxLength={1200} required />
                 <label className="contact-consent">
                   <input type="checkbox" name="consent" required />
-                  <span>Я согласен(на) с условиями обработки персональных данных. <Link href="/privacy" target="_blank" rel="noopener noreferrer">Открыть страницу политики</Link></span>
+                  <span>Я согласен на обработку персональных данных и ознакомлен с <Link href="/privacy" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</Link>.</span>
                 </label>
-                <button type="submit" className="button button-primary contact-submit">Проверить форму <ArrowUpRight size={18} /></button>
+                <button type="submit" className="button button-primary contact-submit">Отправить заявку <ArrowUpRight size={18} /></button>
               </form>
             )}
+            <p className="contact-alt">Или напишите нам в Telegram: <a href="https://t.me/lamp_room_legal" target="_blank" rel="noopener noreferrer">@lamp_room_legal</a></p>
           </div>
         </div>
       )}

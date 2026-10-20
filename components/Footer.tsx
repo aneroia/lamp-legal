@@ -18,18 +18,18 @@ export function ContactSection() {
     <svg className="contact-blue-orbit scroll-decor" data-scroll-move="-13" viewBox="0 0 520 250" preserveAspectRatio="none" aria-hidden="true"><path d="M -20 214 C 172 38 356 34 546 226" /></svg>
     <div className="container contact-section-inner">
       <div className="contact-photo"><Image src={publicPath("/images/skyscrapers.png")} alt="Современные деловые здания" fill sizes="(max-width: 760px) 100vw, 28vw" /></div>
-      <div className="contact-section-copy"><span className="contact-rule" /><h2>Готовы обсудить<br /><span>вашу задачу?</span></h2><p>Оставьте заявку, и мы свяжемся с вами в ближайшее время.</p><ContactButton className="button button-primary">Получить консультацию <ArrowRight size={17} /></ContactButton></div>
-      <div className="contact-aside">Бизнес растёт<br />там, где есть<br />надёжная<br />правовая основа.<span /></div>
+      <div className="contact-section-copy"><div className="eyebrow section-kicker"><span>09</span> — КОНТАКТЫ</div><span className="contact-rule" /><h2>Расскажите о задаче —<br /><span>предложим решение</span></h2><p>Оставьте заявку, и мы вернёмся с понятным форматом работы, сроками и стоимостью. Первое обсуждение ни к чему вас не обязывает.</p><ContactButton className="button button-primary">Отправить заявку <ArrowRight size={17} /></ContactButton></div>
+      <div className="contact-aside">Понятный формат.<br />Сроки.<br />Стоимость.<br />Следующий шаг.<span /></div>
     </div>
   </section>;
 }
 
 export default function Footer() {
   return <footer className="site-footer"><div className="container footer-content">
-    <div className="footer-brand"><Link href="/" aria-label="Лэмп Лигал — на главную" className="footer-logo"><Image src={publicPath("/images/logoWhite.png")} alt="Лэмп Лигал" width={250} height={68} /></Link><p>ЮРИДИЧЕСКАЯ КОМПАНИЯ<br />ДЛЯ БИЗНЕСА</p></div>
-    <nav aria-label="Навигация в подвале"><Link href="/#about">О компании</Link><Link href="/#services">Услуги</Link><Link href="/blog">Блог</Link><Link href="/#contacts">Контакты</Link><Link href="/privacy">Политика данных</Link></nav>
-    <div className="footer-details"><span>Лэмп Лигал</span><span>Москва</span></div>
-    <ContactButton className="footer-contact">Оставьте заявку<br />на консультацию <span><ArrowRight size={20} /></span></ContactButton>
-    <div className="footer-bottom-line"><span>© 2026 Лэмп Лигал</span><span>ЯСНО. СПОКОЙНО. ПО-ДЕЛОВОМУ.</span></div>
+    <div className="footer-brand"><Link href="/" aria-label="Лэмп Лигал — на главную" className="footer-logo"><Image src={publicPath("/images/logoWhite.png")} alt="Лэмп Лигал" width={250} height={68} /></Link><p>ПРАВО, КОТОРОЕ РАБОТАЕТ<br />НА БИЗНЕС</p><span>Юридические решения для бизнеса и IT.</span></div>
+    <nav aria-label="Навигация в подвале"><Link href="/#tasks">Задачи</Link><Link href="/#services">Услуги</Link><Link href="/#approach">Как мы работаем</Link><Link href="/#cases">Кейсы</Link><Link href="/#workflow">Форматы</Link><Link href="/#team">Команда</Link><Link href="/#contacts">Контакты</Link><Link href="/blog">Блог</Link></nav>
+    <div className="footer-details"><a href="https://t.me/lamp_room_legal" target="_blank" rel="noopener noreferrer">t.me/lamp_room_legal</a><a href="mailto:legal@lamp-legal.ru">legal@lamp-legal.ru</a><a href="tel:+79165323978">+7 (916) 532-39-78</a><Link href="/privacy">Политика конфиденциальности</Link></div>
+    <ContactButton className="footer-contact">Оставить заявку<br />на консультацию <span><ArrowRight size={20} /></span></ContactButton>
+    <div className="footer-bottom-line"><span>© 2026 Лэмп Лигал. Все права защищены.</span><span>ПРАВО, КОТОРОЕ РАБОТАЕТ НА БИЗНЕС</span></div>
   </div></footer>;
 }

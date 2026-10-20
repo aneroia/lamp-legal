@@ -1,21 +1,28 @@
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Reveal from "./Reveal";
 import { ContactButton } from "./ContactDialog";
-import { publicPath } from "@/lib/paths";
+
+const situations = [
+  "Запускаем сайт, приложение или сервис — нужны пользовательские документы и политика обработки персональных данных",
+  "Нужно привести обработку персональных данных в порядок: уведомление Роскомнадзора, локальные акты, согласия",
+  "Заключаем договор с заказчиком, подрядчиком или партнёром — нужно составить или проверить, понять риски",
+  "Хотим защитить бренд и продукт: товарный знак, права на ПО и контент, лицензионная модель",
+  "Оформляем стартап: создаём компанию, распределяем доли, партнёрские отношения, опционы",
+  "Хотим включить продукт в реестр российского ПО и понять, подходит ли он под требования",
+  "Ищем гранты и меры поддержки и хотим понять, на что реально можно рассчитывать",
+  "Получили претензию или готовимся к спору — нужна позиция и план действий",
+];
 
 export default function About() {
-  return <section id="about" className="section about-section container">
-    <div className="about-decor scroll-decor" data-scroll-move="24" data-scroll-scale="0.035" aria-hidden="true" />
-    <Reveal className="about-copy">
-      <div className="eyebrow section-kicker"><span>01</span> — О КОМПАНИИ</div>
-      <h2>Тут <span className="accent-word">договариваются</span></h2>
-      <p>Мы помогаем бизнесу, стартапам и digital-командам находить решения в правовых вопросах — без сложных формулировок и лишней бюрократии. Наша задача — чтобы вы могли развиваться, а мы позаботимся о юридической стороне.</p>
-      <ContactButton className="inline-link">Расскажите о своей задаче <ArrowRight size={17} /></ContactButton>
-    </Reveal>
-    <Reveal className="about-visual" delay={120}>
-      <div className="photo-frame"><Image src={publicPath("/images/boardroom.png")} alt="Переговорная комната юридической компании" fill sizes="(max-width: 760px) 100vw, 50vw" /></div>
-      <div className="photo-stamp">Партнёрство.<br />Экспертность.<br />Результат.<span /></div>
-    </Reveal>
+  return <section id="tasks" className="section needs-section">
+    <div className="needs-orbit scroll-decor" data-scroll-move="18" data-scroll-scale="0.025" aria-hidden="true" />
+    <div className="container needs-variant-editorial">
+      <Reveal className="needs-heading section-heading">
+        <div className="eyebrow section-kicker"><span>01</span> — ЗАДАЧИ</div>
+        <div><h2>С чем к нам <span className="accent-word">приходят</span></h2><p>Чаще всего — с вопросами, которые появляются на запуске продукта, в сделке или на росте. Вот типовые ситуации:</p></div>
+      </Reveal>
+      <div className="needs-editorial-list">{situations.map((situation, index) => <Reveal className="needs-editorial-item" key={situation} delay={(index % 4) * 45}><span aria-hidden="true" /><p>{situation}</p></Reveal>)}</div>
+      <Reveal className="needs-cta"><p>Не нашли свою ситуацию? Опишите задачу — рассмотрим и индивидуальный случай.</p><ContactButton className="inline-link">Расскажите о своей задаче <ArrowRight size={17} /></ContactButton></Reveal>
+    </div>
   </section>;
 }

@@ -8,7 +8,7 @@ export default function BlogPreview() {
     <div className="blog-background-dots scroll-decor" data-scroll-move="18" data-scroll-scale="0.03" aria-hidden="true" />
     <div className="container blog-preview-layout">
       <Reveal className="blog-heading">
-        <div className="eyebrow section-kicker"><span>04</span> — БЛОГ</div>
+        <div className="eyebrow section-kicker"><span>08</span> — БЛОГ</div>
         <h2>Актуальное о праве<br />и <span className="accent-word">бизнесе</span></h2>
         <p>Объясняем важное простыми словами и делимся наблюдениями из практики.</p>
         <Link href="/blog" className="inline-link blog-all-link">Все статьи <ArrowRight size={17} /></Link>
