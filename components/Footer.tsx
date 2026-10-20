@@ -18,7 +18,7 @@ export function ContactSection() {
     <svg className="contact-blue-orbit scroll-decor" data-scroll-move="-13" viewBox="0 0 520 250" preserveAspectRatio="none" aria-hidden="true"><path d="M -20 214 C 172 38 356 34 546 226" /></svg>
     <div className="container contact-section-inner">
       <div className="contact-photo"><Image src={publicPath("/images/skyscrapers.png")} alt="Современные деловые здания" fill sizes="(max-width: 760px) 100vw, 28vw" /></div>
-      <div className="contact-section-copy"><div className="eyebrow section-kicker"><span>09</span> — КОНТАКТЫ</div><span className="contact-rule" /><h2>Расскажите о задаче —<br /><span>предложим решение</span></h2><p>Оставьте заявку, и мы вернёмся с понятным форматом работы, сроками и стоимостью. Первое обсуждение ни к чему вас не обязывает.</p><ContactButton className="button button-primary">Отправить заявку <ArrowRight size={17} /></ContactButton></div>
+      <div className="contact-section-copy"><div className="eyebrow section-kicker"><span>09</span> — ОБСУДИМ ВАШУ ЗАДАЧУ</div><span className="contact-rule" /><h2>Расскажите о задаче —<br /><span>предложим решение</span></h2><p>Оставьте заявку, и мы вернёмся с понятным форматом работы, сроками и стоимостью. Первое обсуждение ни к чему вас не обязывает.</p><ContactButton className="button button-primary">Отправить заявку <ArrowRight size={17} /></ContactButton></div>
       <div className="contact-aside">Понятный формат.<br />Сроки.<br />Стоимость.<br />Следующий шаг.<span /></div>
     </div>
   </section>;
