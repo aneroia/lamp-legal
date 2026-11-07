@@ -2,7 +2,20 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { publicPath } from './paths';
 export type Article = {slug:string;title:string;summary:string;category:string;minutes:number;date?:string;status:string;featured?:boolean;pinned?:boolean;lead?:string;checklist?:string[];body:string;cta?:{title:string;text:string;button:string}};
-export function getArticles():Article[]{return fs.readdirSync('content/articles').filter(f=>f.endsWith('.mdx')).map(file=>{const m=fs.readFileSync(path.join('content/articles',file),'utf8').match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/)!;return {...JSON.parse(m[1]),body:m[2]};}).sort((a,b)=>Number(!!b.featured)-Number(!!a.featured)||a.title.localeCompare(b.title,'ru'));}
+export function parseArticle(source:string, file:string):Article {
+  const normalized=source.replace(/^\uFEFF/,'').replace(/\r\n?/g,'\n');
+  const match=normalized.match(/^---\n([\s\S]*?)\n---(?:\n|$)([\s\S]*)$/);
+  if(!match)throw new Error(`Неверный формат статьи ${file}: ожидаются метаданные между строками ---`);
+  let metadata;
+  try {metadata=JSON.parse(match[1]);}
+  catch {throw new Error(`Неверный JSON в метаданных статьи ${file}`);}
+  return {...metadata,body:match[2]};
+}
+export function getArticles():Article[]{
+  return fs.readdirSync('content/articles').filter(file=>file.endsWith('.mdx'))
+    .map(file=>parseArticle(fs.readFileSync(path.join('content/articles',file),'utf8'),file))
+    .sort((a,b)=>Number(!!b.featured)-Number(!!a.featured)||a.title.localeCompare(b.title,'ru'));
+}
 export function getPage(name:string){return JSON.parse(fs.readFileSync(path.join('content/pages',name+'.json'),'utf8')) as {title:string;description:string;body:string;css:string};}
 export function assetPaths(html:string){return html.replace(/(src|href)="\/(?!\/)([^"]*)"/g,(_,a,v)=>`${a}="${publicPath('/'+v)}"`);}
 const esc=(s:string)=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
