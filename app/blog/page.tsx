@@ -1,42 +1,14 @@
-import type { Metadata } from "next";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Reveal from "@/components/Reveal";
-import { posts } from "@/lib/posts";
-import { ArrowUpRight } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Блог — Лэмп Лигал",
-  description: "Материалы о праве для бизнеса, стартапов и digital-команд.",
-};
-
-export default function BlogPage() {
-  return (
-    <>
-      <Header />
-      <main className="blog-page">
-        <section className="blog-intro">
-          <div className="container blog-intro-inner">
-            <div className="eyebrow"><span className="eyebrow-line" /> ЛЭМП ЛИГАЛ / БЛОГ</div>
-            <h1>Право —<br /><span>без сложных слов.</span></h1>
-            <p>Заметки о договорах, интеллектуальной собственности, конфликтах и юридической стороне развития бизнеса.</p>
-            <div className="blog-intro-deco" aria-hidden="true"><div /><span /></div>
-          </div>
-        </section>
-        <section className="blog-list section">
-          <div className="container">
-            <div className="blog-list-top"><div><div className="eyebrow">ПОДБОРКА МАТЕРИАЛОВ</div><h2>Читайте и применяйте</h2></div><span>01 — 06</span></div>
-            <div className="blog-grid">
-              {posts.map((post, i) => <Reveal className="blog-card" key={post.id} delay={(i % 3) * 80}>
-                <div className={"blog-card-art art-" + post.visual}><div className="art-shape" /><span>ЛЭМП ЛИГАЛ / БЛОГ</span></div>
-                <div className="blog-card-body"><div className="blog-card-meta"><span>{post.category}</span><span>{post.readTime}</span></div><h3>{post.title}</h3><p>{post.excerpt}</p><div className="blog-card-foot"><span>Материал готовится</span><ArrowUpRight size={18} /></div></div>
-              </Reveal>)}
-            </div>
-            <p className="blog-note">Это макет блога: тексты и даты публикаций появятся после подготовки материалов.</p>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </>
-  );
+import TemplatePage from '@/components/TemplatePage';
+import {homeParts} from '@/lib/site-content';
+export const metadata={title:'Блог — Лэмп Лигал',description:'Право для стартапов и IT-проектов простыми словами.'};
+export default function Blog(){
+ const {header,footer}=homeParts();
+ return <TemplatePage allArticles html={`${header}<main class="blog-page">
+ <div class="container"><nav class="crumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Блог</span></nav></div>
+ <section class="blog-intro" data-reveal><div class="container blog-intro-grid">
+ <div class="blog-intro-copy"><h1>Право — без сложных слов</h1><p class="lead">Пишем для фаундеров и продуктовых команд о том, что сделать до запуска, как защитить код и бренд и где искать господдержку.</p><a class="tg-link" href="https://t.me/lamp_room_legal" target="_blank" rel="noopener noreferrer">Новые разборы сначала выходят в Telegram-канале →</a></div>
+ <div id="blogFeatured" class="blog-intro-feature"></div>
+ </div></section>
+ <section class="blog-catalog" data-reveal><div class="container"><h2 class="blog-catalog-title">Статьи и разборы</h2><div class="blog-filter" id="blogFilter" role="group" aria-label="Темы статей"></div><div class="posts" id="blogPosts"></div></div></section>
+ </main>${footer}`}/>;
 }
