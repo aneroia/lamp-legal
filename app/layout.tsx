@@ -5,6 +5,10 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
   title: "Лэмп Лигал — право, которое работает на бизнес",
   description: "Юридические решения для бизнеса и IT: запуск продуктов, договоры, сделки, интеллектуальная собственность и персональные данные.",
 };
