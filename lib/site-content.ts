@@ -27,3 +27,29 @@ export function blogMarkup(all=false){
  return {filter,cards,feature};
 }
 export function homeParts(){const p=getPage('index');return {header:p.body.match(/<header[\s\S]*?<\/header>/)![0].replace(/href="#/g,'href="/#'),footer:p.body.match(/<footer[\s\S]*?<\/footer>/)![0].replace(/href="#/g,'href="/#')};}
+
+const serviceLinks = [
+  { page: 'proverka-sajta', label: 'Юридическая проверка сайта' },
+  { page: 'personalnye-dannye', label: 'Персональные данные' },
+  { page: 'dokumenty-dlya-sajta', label: 'Документы для сайта' },
+];
+
+export function withServiceMenu(html: string, currentPage: string): string {
+  const links = serviceLinks.map(({ page, label }) => {
+    const current = page === currentPage ? ' aria-current="page"' : '';
+    return `<a href="/${page}/"${current}>${label}</a>`;
+  }).join('');
+
+  return html.replace(
+    /<a href="(\/?#services)">Услуги<\/a>/,
+    (_, servicesHref: string) => `<div class="services-menu">
+      <div class="services-menu-trigger">
+        <a href="${servicesHref}">Услуги</a>
+        <button class="services-menu-toggle" type="button" aria-label="Список услуг" aria-controls="servicePageLinks" aria-expanded="false"></button>
+      </div>
+      <div class="services-menu-links" id="servicePageLinks" hidden>
+        ${links}
+      </div>
+    </div>`,
+  );
+}
